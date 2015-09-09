@@ -16,7 +16,7 @@ limitations under the License.
 import os
 import shutil
 import sys
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.install import install
 import uuid
 
@@ -67,7 +67,7 @@ setup(
     install_requires=[
         'pyyaml', 'psutil > 3', 'colorlog', 'colorama', 'lxml >= 3.4.2', 'cssselect', 'urwid', 'six', 'nose',
         'selenium', 'progressbar33'],
-    packages=['bzt', 'bzt.six', 'bzt.modules', 'bzt.resources'],
+    packages=find_packages(exclude=['tests*']),
     entry_points={
         'console_scripts': [
             'bzt=bzt.cli:main',
